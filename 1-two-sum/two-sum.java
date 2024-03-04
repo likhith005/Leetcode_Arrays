@@ -9,13 +9,23 @@ class Solution {
         // }
         // return nums;
 
-        Map<Integer,Integer> nums_map = new HashMap<>();
+
+        // Map<Integer,Integer> nums_map = new HashMap<>();
+        // for(int i=0;i<nums.length;i++){
+        //     int complement = target - nums[i];
+        //     if(nums_map.containsKey(complement)){
+        //         return new int[] {nums_map.get(complement),i};
+        //     }
+        //     nums_map.put(nums[i],i);
+        // }
+        // return null;
+
+        Map<Integer,Integer> complement = new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            int complement = target - nums[i];
-            if(nums_map.containsKey(complement)){
-                return new int[] {nums_map.get(complement),i};
+            if (complement.containsKey(nums[i])){
+                return new int[] {complement.get(nums[i]), i};
             }
-            nums_map.put(nums[i],i);
+            complement.put(target-nums[i],i);
         }
         return null;
     }
