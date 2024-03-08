@@ -17,19 +17,38 @@ class Solution {
 
         //but need to return maximum frequency or duplicate of element in an array
 
+        // int[] arr = new int[101];
+        // int maxfreq = 0;
+        // for(int num:nums){
+        //     arr[num]++;
+        //     maxfreq=Math.max(maxfreq,arr[num]);
+        // }
+
+        // int result = 0;
+        // for(int i=0;i<101;i++){
+        //     if(arr[i]==maxfreq){
+        //         result+=maxfreq;
+        //     }
+        // }
+        // return result;
+
+
+
         int[] arr = new int[101];
-        int maxfreq = 0;
+        int maxfreq=0;
+        int total=0;
+        
         for(int num:nums){
             arr[num]++;
-            maxfreq=Math.max(maxfreq,arr[num]);
-        }
+            int freq = arr[num];
 
-        int result = 0;
-        for(int i=0;i<101;i++){
-            if(arr[i]==maxfreq){
-                result+=maxfreq;
+            if(freq>maxfreq){
+                maxfreq=freq;
+                total=freq;
+            }else if(freq==maxfreq){
+                total+=freq;
             }
         }
-        return result;
+        return total;
     }
 }
