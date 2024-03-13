@@ -33,15 +33,32 @@ class Solution {
         // return -1;
 
 
-        int totalSum = n*(n+1)/2;
-        for(int pivot=1;pivot<=n;pivot++){
-            int leftSum = pivot*(pivot+1)/2;
-            int rightSum = totalSum-leftSum+pivot;
+        // int totalSum = n*(n+1)/2;
+        // for(int pivot=1;pivot<=n;pivot++){
+        //     int leftSum = pivot*(pivot+1)/2;
+        //     int rightSum = totalSum-leftSum+pivot;
 
-            if(leftSum == rightSum){
-                return pivot;
+        //     if(leftSum == rightSum){
+        //         return pivot;
+        //     }
+        // }
+        // return -1;
+
+
+        int i = 1;
+        int j = n;
+        int leftSum = 1;
+        int rightSum = n;
+
+        while(i<j){
+            if(leftSum<rightSum){
+                i++;
+                leftSum += i;
+            }else {
+                j--;
+                rightSum += j;
             }
         }
-        return -1;
+        return leftSum == rightSum ? i:-1;
     }
 }
